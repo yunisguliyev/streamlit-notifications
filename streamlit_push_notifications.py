@@ -11,7 +11,7 @@ def send_push(title: str = "Pass TITLE as an argument 🔥",
 
 
     try:
-        icon_path_on_server = image.image_to_url(icon_path, 300, 300, "RGB", "auto", icon_path)
+        icon_path_on_server = runtime.get_instance().media_file_mgr.add(icon_path, "image/png", "")
     except:
         icon_path_on_server = ""
 
