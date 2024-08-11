@@ -7,11 +7,12 @@ st.divider()
 
 title = st.text_input("Title:")
 body = st.text_input("Body:")
+icon = st.checkbox("Icon:")
 
 if st.button("Push"):
     if title != '' or body != '':
         send_push(title= title,
-                body= body)
+                body= body, icon_path= "streamlit-seeklogo.svg")
     else:
         send_push()
 
