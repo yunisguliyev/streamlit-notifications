@@ -1,9 +1,0 @@
-
-
-[server]
-
-port = 80
-
-#ssl keys are configured to work on the localhost, reconfigure for remote server
-sslKeyFile = ".streamlit/ssl/key.pem"
-sslCertFile = ".streamlit/ssl/cert.pem"
