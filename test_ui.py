@@ -1,6 +1,10 @@
 import streamlit as st
 from streamlit_push_notifications import send_push
 
+
+st.title("Streamlit Push Notifications 📢")
+st.divider()
+
 title = st.text_input("Title:")
 body = st.text_input("Body:")
 
