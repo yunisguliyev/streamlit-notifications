@@ -7,24 +7,13 @@ st.divider()
 
 title = st.text_input("Title:")
 body = st.text_input("Body:")
-icon = st.checkbox("Icon:", help= "You can add your icons as well")
-sound = st.checkbox("Sound:", help= "You can add your audio as well")
-
-if icon:
-    icon_path = "streamlit-mark-light.png"
-else:
-    icon_path = ""
-
-if sound:
-    sound_path = "https://cdn.pixabay.com/audio/2024/02/19/audio_e4043ea6be.mp3"
-else:
-    sound_path = ""
-
+icon = st.checkbox("Icon:")
 
 if st.button("Push"):
     if title != '' or body != '':
         send_push(title= title,
-                body= body, icon_path= icon_path, sound_path= sound_path)
+                body= body, icon_path= "streamlit-seeklogo.svg")
     else:
-        send_push(icon_path= icon_path, sound_path= sound_path)
+        send_push()
 
+#streamlit run test_ui.py
