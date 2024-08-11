@@ -7,7 +7,7 @@ st.divider()
 
 title = st.text_input("Title:")
 body = st.text_input("Body:")
-sound = st.checkbox("Sound:", help= "You can add your audio as well")
+sound = st.checkbox("Sound:", help= "You can add your audio as well", value= True)
 
 #st.image("streamlit-mark-light.png")
 

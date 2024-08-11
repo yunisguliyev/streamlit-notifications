@@ -11,7 +11,7 @@ def send_push(title: str = "Pass TITLE as an argument 🔥",
 
 
     try:
-        icon_path_on_server = runtime.get_instance().media_file_mgr.add(icon_path, "image/png", "1.(3.-14).5")
+        icon_path_on_server = runtime.get_instance().media_file_mgr.add(icon_path, "image/png", "")
     except:
         icon_path_on_server = ""
 
