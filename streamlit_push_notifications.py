@@ -60,7 +60,7 @@ def send_push(title: str = "Pass TITLE as an argument 🔥",
     combined = '<script>' + variables + script + '</script>'
 
 
-    #print(combined)
+    print(combined)
     html(combined, width= 0, height= 0)
 
 
