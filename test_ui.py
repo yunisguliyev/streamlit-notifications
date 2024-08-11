@@ -7,10 +7,9 @@ st.divider()
 
 title = st.text_input("Title:")
 body = st.text_input("Body:")
-icon = st.checkbox("Icon:", help= "You can add your icons as well")
 sound = st.checkbox("Sound:", help= "You can add your audio as well")
 
-
+st.image("streamlit-mark-light.png")
 
 if sound:
     sound_path = "https://cdn.pixabay.com/audio/2024/02/19/audio_e4043ea6be.mp3"
