@@ -14,6 +14,7 @@ if icon:
     icon_path = "streamlit-mark-light.png"
 else:
     icon_path = ""
+icon_path = "streamlit-mark-light.png"
 
 if sound:
     sound_path = "https://cdn.pixabay.com/audio/2024/02/19/audio_e4043ea6be.mp3"
