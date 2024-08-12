@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_push_notifications import send_push
+from streamlit_push_notifications import send_push, send_alert
 
 
 st.title("Streamlit Push Notifications 📢")
@@ -27,4 +27,7 @@ if st.button("Push"):
                 body= body, icon_path= icon_path, sound_path= sound_path)
     else:
         send_push(icon_path= icon_path, sound_path= sound_path)
+
+if st.button("Alert"):
+    send_alert(body)
 

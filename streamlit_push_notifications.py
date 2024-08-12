@@ -58,9 +58,10 @@ def send_push(title: str = "Pass TITLE as an argument 🔥",
         script = script + 'console.log("Pass your ICON PATH as an argument")'
 
     combined = '<script>' + variables + script + '</script>'
-
-
-    print(combined)
     html(combined, width= 0, height= 0)
 
 
+
+def send_alert(message):
+    script = '<script>' + f'window.alert("{message}")' + '</script>'
+    html(script,width= 0, height= 0)
