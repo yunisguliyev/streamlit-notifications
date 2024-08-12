@@ -12,16 +12,8 @@ This repository contains a simple Python script that integrates with [Streamlit]
 
 ## Installation
 
-1. Clone the repository:
-
    ```bash
    git clone https://github.com/yunisguliyev/streamlit-push-notifications.git
-   ```
-
-2. Install the required dependencies:
-
-   ```bash
-   pip install streamlit
    ```
 
 ## Usage
@@ -40,7 +32,7 @@ Import the `send_push` function from the script and call it within your Streamli
 
 ```python
 import streamlit as st
-from your_script_name import send_push
+from streamlit-push-notifications import send_push
 
 st.title("Streamlit Push Notification Example")
 
