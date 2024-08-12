@@ -18,7 +18,7 @@ This repository contains a simple Python script that integrates with [Streamlit]
 
 ## Usage
 
-Import the `send_push` or `send_alert` function from the script and call it within your Streamlit app.
+Import the `send_push` function from the script and call it within your Streamlit app.
 
 ### Parameters
 
@@ -27,8 +27,6 @@ Import the `send_push` or `send_alert` function from the script and call it with
 - `icon_path`: The path to an icon image (default is an empty string, meaning no icon).
 - `sound_path`: The path to an audio file to be played with the notification (default is a sound from Pixabay).
 - `tag`: A tag to group notifications (default is an empty string).
-
-- `message`: A text to be displayed for "send_alert" function
 
 ### Example
 
@@ -45,19 +43,6 @@ if st.button("Send Notification"):
               sound_path="https://example.com/your_sound.mp3",
               tag="test")
 ```
-![push example](push.png "")
-
-
-```python
-import streamlit as st
-from streamlit-push-notifications import send_alert
-
-if st.button("Alert"):
-    send_alert("This is alert")
-```
-![alert example](alert.png "")
-
-
 
 ## How It Works
 
@@ -71,7 +56,7 @@ If the icon or sound file cannot be uploaded to the server, the script falls bac
 ## Contributing
 
 Feel free to contribute by submitting issues or pull requests. Any enhancements or bug fixes are welcome!
-Also you can contanct me via [LinkedIn](https://www.linkedin.com/in/yunisguliyev/) or [Instagram](https://www.instagram.com/yunisguliyev/).
+Also you can contanct me via [LinkedIn](https://www.linkedin.com/in/yunisguliyev/)
 
 ## License
 
