@@ -1,21 +1,12 @@
-import base64
 from streamlit import runtime
 from streamlit.components.v1 import html
-
-
-
-
-
-
-
 
 def send_push(title: str = "Pass TITLE as an argument 🔥",
             body: str = "Pass BODY as an argument 👨🏻‍💻",
             icon_path: str = "",
             sound_path: str = "https://cdn.pixabay.com/audio/2024/02/19/audio_e4043ea6be.mp3",
+            only_when_on_other_tab: bool = False,
             tag: str = "") -> None:
-
-
 
     try:
         icon_path_on_server = runtime.get_instance().media_file_mgr.add(icon_path, "image/png", "")
@@ -41,7 +32,7 @@ def send_push(title: str = "Pass TITLE as an argument 🔥",
     script = """
     Notification.requestPermission().then(perm => {
     if (perm === 'granted') {
-        new Notification(title, {
+        notification = new Notification(title, {
             body: body,
             icon: icon,
             tag: tag
@@ -64,6 +55,24 @@ def send_push(title: str = "Pass TITLE as an argument 🔥",
     if icon_path == "":
         script = script + 'console.log("Pass your ICON PATH as an argument")'
 
+
+    if only_when_on_other_tab:
+        script = """
+        let notification
+        document.addEventListener("visibilitychange", () => {
+            if(document.visibilityState === "hidden"){
+                """ + script + """
+            }
+            else if (document.visibilityState === "visible") {
+                if (notification) {
+                    notification.close();
+                }
+        })
+        """
+    else:
+        pass 
+
+    
     combined = '<script>' + variables + script + '</script>'
     html(combined, width= 0, height= 0)
 
