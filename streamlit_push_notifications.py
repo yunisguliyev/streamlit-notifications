@@ -1,6 +1,12 @@
+import base64
 from streamlit import runtime
-from streamlit.elements import image
 from streamlit.components.v1 import html
+
+
+
+
+
+
 
 
 def send_push(title: str = "Pass TITLE as an argument 🔥",
@@ -10,8 +16,15 @@ def send_push(title: str = "Pass TITLE as an argument 🔥",
             tag: str = "") -> None:
 
 
+    with open(icon_path, "rb") as f:
+        data = f.read()
+        encoded = base64.b64encode(data)
+        data = "data:image/png;base64," + encoded.decode("utf-8")
+
+    
+
     try:
-        icon_path_on_server = runtime.get_instance().media_file_mgr.add(icon_path, "image/png", "")
+        icon_path_on_server = data
     except:
         icon_path_on_server = ""
 
