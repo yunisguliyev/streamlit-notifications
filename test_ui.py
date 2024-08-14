@@ -1,5 +1,4 @@
 import streamlit as st
-from time import sleep
 from streamlit_push_notifications import send_push, send_alert
 
 
@@ -20,10 +19,7 @@ else:
 if sound:
     sound_path = "https://cdn.pixabay.com/audio/2024/02/19/audio_e4043ea6be.mp3"
 else:
-    sound_path = ""
-
-if only_off_tab:
-    sleep(2)
+    sound_path = ""    
 
 
 if st.button("Push"):

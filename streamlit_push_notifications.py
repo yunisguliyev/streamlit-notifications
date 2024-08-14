@@ -19,63 +19,58 @@ def send_push(title: str = "Pass TITLE as an argument 🔥",
         sound_path_on_server = sound_path
 
 
-
     variables = f"""
-    var title = "{title}"
-    var body = "{body}"
-    var icon = "{icon_path_on_server}"
-    var audio = "{sound_path_on_server}"
-    var tag = "{tag}"
-    
+    var title = "{title}";
+    var body = "{body}";
+    var icon = "{icon_path_on_server}";
+    var audio = "{sound_path_on_server}";
+    var tag = "{tag}";
+    var notificationSent = false; // Flag to track notification state
     """
 
     script = """
     Notification.requestPermission().then(perm => {
-    if (perm === 'granted') {
-        notification = new Notification(title, {
-            body: body,
-            icon: icon,
-            tag: tag
-        });
+        if (perm === 'granted') {
+            notification = new Notification(title, {
+                body: body,
+                icon: icon,
+                tag: tag
+            });
 
-        new Audio(audio).play();
-    } else if (perm === 'denied') {
-        console.log('The user refuses to have notifications displayed.');
-    } else if (perm === 'default') {
-        console.log('The user choice is unknown, so the browser will act as if the value were denied.');
-    } else {
-        console.log('Unknown permission issue.');
-    }
+            new Audio(audio).play();
+            notificationSent = true; // Set the flag to true after sending notification
+        } else if (perm === 'denied') {
+            console.log('The user refuses to have notifications displayed.');
+        } else if (perm === 'default') {
+            console.log('The user choice is unknown, so the browser will act as if the value were denied.');
+        } else {
+            console.log('Unknown permission issue.');
+        }
     }).catch(error => {
         console.error('An error occurred while requesting notification permission:', error);
     });
-
     """
 
     if icon_path == "":
-        script = script + 'console.log("Pass your ICON PATH as an argument")'
-
+        script += 'console.log("Pass your ICON PATH as an argument");'
 
     if only_when_on_other_tab:
         script = """
-        let notification
-        document.addEventListener("visibilitychange", () => {
-            if(document.visibilityState === "hidden"){
-                """ + script + """
-            }
-            else if (document.visibilityState === "visible") {
-                if (notification) {
+        let notification;
+        document.addEventListener("visibilitychange", () => {{
+            if (document.visibilityState === "hidden" && !notificationSent) {{""" + script + """}} else if (document.visibilityState === "visible") {{
+                if (notification) {{
                     notification.close();
-                }
-        })
+                }}
+                notificationSent = false; // Reset the flag when the tab becomes visible
+            }}
+        }});
         """
     else:
-        pass 
+        pass
 
-    
     combined = '<script>' + variables + script + '</script>'
-    html(combined, width= 0, height= 0)
-
+    html(combined, width=0, height=0)
 
 
 def send_alert(message):
