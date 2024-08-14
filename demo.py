@@ -13,6 +13,7 @@ only_off_tab = st.checkbox("On other tab:", help= "Sends the push notification o
 
 if icon:
     icon_path = "streamlit-mark-light.png"
+    st.info("Due to an unknown issue related to Streamlit Cloud, the icon is not displayed in the demo. However, this functionality has been tested and confirmed to work correctly on both local and remote servers.")
 else:
     icon_path = ""
 
