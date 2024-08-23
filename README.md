@@ -59,7 +59,7 @@ If the icon or sound file cannot be uploaded to the server, the script falls bac
 ## Contributing
 
 Feel free to contribute by submitting issues or pull requests. Any enhancements or bug fixes are welcome!
-Also you can contanct me via [LinkedIn](https://www.linkedin.com/in/yunisguliyev/)
+Also you can contanct me via [LinkedIn](https://www.linkedin.com/in/yunisguliyev/) or  contact [Wambugu Kinyua](https://www.linkedin.com/in/kennedy-wambugu-1b362b26b/)
 
 ## License
 
