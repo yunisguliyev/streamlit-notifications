@@ -13,7 +13,7 @@ This repository contains a simple Python script that integrates with [Streamlit]
 ## Installation
 
    ```bash
-   git clone https://github.com/yunisguliyev/streamlit-push-notifications.git
+pip install git+https://github.com/wambugu71/streamlit-push-notifications.git
    ```
 
 ## Usage
