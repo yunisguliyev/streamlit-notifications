@@ -20,8 +20,18 @@ or
 pip install streamlit-push-notifications
 ```
 ## Usage
+```Python
+import  streamlit  as  st
+from streamlit_push_notifications import send_alert, send_push
 
-Import the `send_push` function from the script and call it within your Streamlit app.
+st.write("Sending  notification alert!")
+if  st.button("send notification"):
+    send_alert(message="Hello from  streamlit_push_notifications ")
+    
+if  st.button("notification"):
+    send_push(title= "Pass TITLE as an argument 🔥", body = "Pass BODY as an argument 👨🏻‍💻")
+
+```
 
 ### Parameters
 
@@ -31,30 +41,14 @@ Import the `send_push` function from the script and call it within your Streamli
 - `sound_path`: The path to an audio file to be played with the notification (default is a sound from Pixabay).
 - `tag`: A tag to group notifications (default is an empty string).
 
-### Example
-
-```python
-import streamlit as st
-from streamlit-push-notifications import send_push
-
-st.title("Streamlit Push Notification Example")
-
-if st.button("Send Notification"):
-    send_push(title="Hello, World!",
-              body="This is a test notification.",
-              icon_path="path_to_your_icon.png",
-              sound_path="https://example.com/your_sound.mp3",
-              tag="test")
-```
-
 ## How It Works
 
 - **Notification API**: The script uses the JavaScript Notification API to create notifications.
-- **Media Handling**: Streamlit’s media file manager handles the uploading and serving of icon and audio files.
+- **Media Handling**: Streamlit’s media file manager handles uploading, and serving icon, and audio files.
 
 ### Error Handling
 
-If the icon or sound file cannot be uploaded to the server, the script falls back to using a default or the provided file path directly.
+If the icon or sound file cannot be uploaded to the server, the script returns to using a default or the provided path directly.
 
 ## Contributing
 
