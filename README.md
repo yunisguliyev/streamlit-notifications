@@ -15,7 +15,10 @@ This repository contains a simple Python script that integrates with [Streamlit]
    ```bash
 pip install git+https://github.com/wambugu71/streamlit-push-notifications.git
    ```
-
+or  
+```bash
+pip install streamlit-push-notifications
+```
 ## Usage
 
 Import the `send_push` function from the script and call it within your Streamlit app.
